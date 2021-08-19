@@ -14,10 +14,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    //Probamos el ORM
     public function prueba(){
         $user = Pedidos::find(1)->usuarios()->get();
        
-        return $user;
+
+        return response()->json($user, 200);
+        
     }
 
     public function api(){
