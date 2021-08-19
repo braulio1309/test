@@ -14,12 +14,15 @@ class CategoriasProductosMigration extends Migration
     public function up()
     {
         Schema::create('categorias_productos', function (Blueprint $table) {
-            $table->integer('producto_id')->unsigned()->primary();
-            $table->integer('categoria_id')->unsigned()->index();
+            $table->id();
+            $table->integer('producto_id')->unsigned();
+            $table->integer('categoria_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('producto_id')->references('id')->on('productos');
             $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
