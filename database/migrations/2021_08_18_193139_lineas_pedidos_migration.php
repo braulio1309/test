@@ -16,6 +16,8 @@ class LineasPedidosMigration extends Migration
         Schema::create('lineas_pedidos', function (Blueprint $table) {
             $table->integer('producto_id')->unsigned()->primary();
             $table->integer('pedido_id')->unsigned()->index();
+            $table->integer('cantidad');
+
             $table->timestamps();
 
             //Clave foránea

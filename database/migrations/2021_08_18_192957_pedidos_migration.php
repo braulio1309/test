@@ -15,7 +15,7 @@ class PedidosMigration extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->decimal('total',4,2);
+            $table->decimal('total');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 

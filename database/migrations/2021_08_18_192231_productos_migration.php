@@ -16,7 +16,7 @@ class ProductosMigration extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 50);
-            $table->float('precio', 4,2);
+            $table->decimal('precio');
             $table->timestamps();
         });
     }
