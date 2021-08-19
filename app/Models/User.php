@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol_id',
+        'id'
     ];
 
     /**
@@ -40,4 +42,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rol(){
+        return $this->belongsTo('App\Models\Roles');
+    }
+
+    public function productos(){
+        return $this->belongsToMany(Productos::class,'categorias_productos', 'producto_id','categoria_id')
+           ->withPivot('categoria_id');
+    }
+    public function categorias(){
+        return $this->belongsToMany(Categorias::class ,'categorias_productos', 'producto_id','categoria_id')
+            ->withPivot('producto_id'); 
+    }
+
+    
 }
