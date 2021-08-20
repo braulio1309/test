@@ -10,7 +10,7 @@ use App\Models\Pedidos;
 use App\Models\Lineas_pedidos;
 use App\Models\Productos;
 use App\Models\User;
-
+ 
 
 class UserController extends Controller
 {
@@ -22,8 +22,16 @@ class UserController extends Controller
         return response()->json($user, 200);
         
     }
+    
+    
+    //Extraemos la data de todos los pokemones
+    public function api(\GuzzleHttp\Client $client){
+        $response = $client->request('GET', "pokemon?limit=100&offset=200");
 
-    public function api(){
+        $data = json_decode($response->getBody());
+
+        return $data;
+
 
     }
 
