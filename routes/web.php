@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use GuzzleHttp\Client;
 
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/prueba', [UserController::class, 'prueba']);
+Route::get('/api', [UserController::class, 'api']);
+
+
+
+
